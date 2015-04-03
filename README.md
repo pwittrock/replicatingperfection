@@ -1,7 +1,7 @@
 # replicatingperfection
 
 ## Project Description
-Project contains cloud configuration to run a prebuilt netrunner Docker container on Kubernetes.
+Project contains cloud configuration to run a prebuilt netrunner Docker container in the cloud.  The netrunner code is taken from [jinteki.net](http://jinteki.net) and authored by mtgred.  A few minor modifications have been made to support remote mongodb and game servers.
 
 ## Running a server in the cloud
 
