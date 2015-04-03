@@ -1,0 +1,25 @@
+{
+  "id": "game-controller",
+  "kind": "ReplicationController",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "replicas": 1,
+    "replicaSelector": {"name": "game-server"},
+    "podTemplate": {
+      "desiredState": {
+        "manifest": {
+          "version": "v1beta1",
+          "id": "frontendController",
+          "containers": [{
+            "name": "game",
+            "image": "pwittrock/jinteki_baseimage",
+            "ports": [{name: "game", "containerPort": 1043}],
+            "command": ["setuser", "jinteki", "java", "-jar", "target/netrunner-0.1.0-SNAPSHOT-standalone.jar"],
+          }]
+        }
+      },
+      "labels": {"name": "game-server"}
+    }
+  },
+  "labels": {"name": "serving"}
+}

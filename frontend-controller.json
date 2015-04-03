@@ -1,0 +1,31 @@
+{
+  "id": "frontend-controller",
+  "kind": "ReplicationController",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "replicas": 1,
+    "replicaSelector": {"name": "frontend"},
+    "podTemplate": {
+      "desiredState": {
+        "manifest": {
+          "version": "v1beta1",
+          "id": "frontendController",
+          "containers": [{
+            "name": "jinteki",
+            "image": "pwittrock/jinteki_baseimage",
+            "ports": [{name: "http", "containerPort": 1042}],
+            "env": [
+              {name: "NODE_ENV", value: "production"},
+              {name: "OPENSHIFT_APP_NAME", value: "<SET_APP_NAME>"},
+              {name: "OPENSHIFT_MONGODB_DB_PASSWORD", value: "<SET_DB_PASS>"},
+              {name: "OPENSHIFT_MONGODB_DB_USERNAME", value: "<SET_DB_USERNAME>"},
+              {name: "OPENSHIFT_MONGODB_DB_HOST", value: "<SET_DB_HOST>"},
+              {name: "OPENSHIFT_MONGODB_DB_PORT", value: "<SET_DB_PORT>"}],
+            "command": ["setuser", "jinteki", "coffee", "server.coffee"],
+          }]
+        }
+      },
+      "labels": {"name": "frontend"}
+    }},
+  "labels": {"name": "serving"}
+}

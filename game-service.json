@@ -1,0 +1,11 @@
+{
+  "id": "game",
+  "kind": "Service",
+  "apiVersion": "v1beta1",
+  "selector": {
+    "name": "game-server"
+  },
+  "containerPort": "game",
+  "port": 1043,
+  "createExternalLoadBalancer": false
+}

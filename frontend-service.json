@@ -1,0 +1,11 @@
+{
+  "id": "frontend",
+  "kind": "Service",
+  "apiVersion": "v1beta1",
+  "selector": {
+    "name": "frontend"
+  },
+  "containerPort": "http",
+  "port": 80,
+  "createExternalLoadBalancer": true
+}
