@@ -33,5 +33,5 @@ gcloud preview container kubectl log frontend-controller-<pod_extension> jinteki
 ```
 gcloud compute forwarding-rules list
 ```
-* Wait 5 minutes, then visit http://<IP_ADDRESS>
+* Wait 5 minutes, then visit http://IP_ADDRESS from the forwarding-rules
 
